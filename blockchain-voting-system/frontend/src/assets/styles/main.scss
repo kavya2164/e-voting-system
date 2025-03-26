@@ -1,0 +1,99 @@
+// Variables
+$primary-color: #4361ee;
+$secondary-color: #3f37c9;
+$error-color: #f72585;
+$success-color: #4cc9f0;
+$text-color: #2b2d42;
+$light-gray: #f8f9fa;
+
+// Base styles
+body {
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+  background-color: $light-gray;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+}
+
+// Blockchain status
+.blockchain-status {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  
+  &.connected {
+    background-color: rgba($success-color, 0.1);
+    color: darken($success-color, 20%);
+  }
+  
+  &.disconnected {
+    background-color: rgba($error-color, 0.1);
+    color: darken($error-color, 20%);
+  }
+}
+
+// Transaction list
+.transaction-list {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  
+  .transaction-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.05);
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Voting cards
+.voting-card {
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  &.selected {
+    border: 2px solid $primary-color;
+    background-color: rgba($primary-color, 0.05);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .content-area {
+    padding: 15px;
+  }
+}
